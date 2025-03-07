@@ -26,5 +26,5 @@ Using **python** exploring Bike Share System Usage in _Chicago, Wadhington and N
 `README.md`
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Udacity:https://www.udacity.com/dashboard
 
