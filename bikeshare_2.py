@@ -226,6 +226,29 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+def user_raw_data(df):
+    #individual a variable index
+    start_index = 0
+    # While loop to view individual trip data
+    while True:
+        user_input = input("Would you like to see 5 rows of raw data? (yes/no): ").lower()
+        
+        if user_input == "yes":
+            # Check if there are more rows to display
+            if start_index < len(df):
+                # Display the next 5 lines of raw data
+                print(df.iloc[start_index:start_index + 5])
+                # Update the start index for the next iteration
+                start_index += 5
+            else:
+                print("No more data to display.")
+                break
+        # Exit the loop if the user says 'no'       
+        elif user_input == "no":
+            print("Exiting the data display.")
+            break
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
 
 def main():
     while True:
