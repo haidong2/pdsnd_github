@@ -16,13 +16,13 @@ Using **python** exploring Bike Share System Usage in _Chicago, Wadhington and N
 
 
 ### Files used
-# bikeshare dataset files:
+**bikeshare dataset files:**
 `chicago.csv`
 `new_york_city.csv`
 `washington.csv`
-# python code:
+**python code:**
 `bikeshare_2.py`
-# help document:
+**help document:**
 `README.md`
 
 ### Credits
