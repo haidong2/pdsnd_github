@@ -16,7 +16,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     # Define a list of valid cities
     valid_cities = ['chicago','new york city','washington']
     # Initializing Variables
@@ -28,8 +28,7 @@ def get_filters():
            print("Invalid input. Please try again.")
         
     print(f"You selected:{city.title()}")
-
-    # get user input for month (all, january, february, ... , june)
+    # TO DO: get user input for month (all, january, february, ... , june)
     # Define a list of valid months
     valid_months = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
     # Initializing Variables
@@ -42,8 +41,7 @@ def get_filters():
             
     print(f"You have selected: {month.title()}")
     
-
-    # get user input for day of week (all, monday, tuesday, ... sunday)
+    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     # Define a list of valid days
     valid_days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',               'saturday', 'sunday']
     # Initializing Variables
@@ -97,7 +95,8 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # display the most common month
+    # TO DO: display the most common month
+
     # Convert 'Start Time' to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     # Extract month from 'Start Time'
@@ -106,24 +105,21 @@ def time_stats(df):
     most_common_month = df['month'].mode()[0]
 
     print(f"The most common month is: {most_common_month}")
-
-    # display the most common day of week
-    
+    # TO DO: display the most common day of week
     # Extract day of week from 'Start Time'
     df['day_of_week'] = df['Start Time'].dt.day_name
     # Most common month
     most_common_day_of_week = df['day_of_week'].mode()[0]
     
     print(f"The most common day of week is: {most_common_day_of_week}")
-
-    # display the most common start hour
+    # TO DO: display the most common start hour
     # Extract hour from 'Start Time'
     df['hour'] = df['Start Time'].dt.hour
     # Most common month
     most_common_start_hour = df['hour'].mode()[0]
 
     print(f"The most common start hour is: {most_common_start_hour}")
-
+    
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -154,7 +150,7 @@ def station_stats(df):
     most_frequent_trip_count = df.groupby(['Start Station', 'End Station']).size().max()
     
     print(f"The most frequent trip is from '{most_frequent_trip[0]}' to              '{most_frequent_trip[1]}', occurring {most_frequent_trip_count} times.")
-
+    
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -180,8 +176,7 @@ def trip_duration_stats(df):
     # Convert mean travel time from seconds to minutes
     mean_travel_time_minutes = mean_travel_time / 60
     print(f"The mean travel time is: {mean_travel_time_minutes:.2f} min")
-
-
+    
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -222,10 +217,9 @@ def user_stats(df):
     else: 
         print("\nBirth year data not available for this city.")
 
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
+    
 def user_raw_data(df):
     #individual a variable index
     start_index = 0
@@ -249,6 +243,7 @@ def user_raw_data(df):
             break
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
+            
 
 def main():
     while True:
@@ -259,6 +254,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+        user_raw_data(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
